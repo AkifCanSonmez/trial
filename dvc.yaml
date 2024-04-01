@@ -1,0 +1,12 @@
+stages:
+  collect:
+    cmd: python3 collect.py
+    deps:
+    - new_tag.txt
+    outs:
+    - dataset:
+        persist: true
+  push_new_version:
+    cmd: dvc push
+    deps:
+    - dataset
